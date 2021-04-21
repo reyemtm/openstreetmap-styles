@@ -12,4 +12,4 @@ An OSM style for ArcGIS Pro based on the Geofabrik shapefiles. The labeling is e
 
 *This is a work in progress.*
 
-- [OSM Basemap Light for ArcGIS Pro](https://github.com/reyemtm/openstreetmap-styles/blob/main/OSM%20Basemap%20Light.lyrx)
+- [OSM Basemap Light for ArcGIS Pro](https://github.com/reyemtm/openstreetmap-styles/blob/main/OSM%20Simple%20Light.lyrx)
