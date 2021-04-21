@@ -4,6 +4,8 @@ A collection of desktop basemap styles for OpenStreetMap.
 ### OSM Simple Light
 An OSM style for ArcGIS Pro based on the Geofabrik shapefiles. The labeling is exaggerated (a bit large) since this style is being used for simple print maps, not web maps.
 
+![](https://raw.githubusercontent.com/reyemtm/openstreetmap-styles/main/osm_simple_light_1.png)![](https://raw.githubusercontent.com/reyemtm/openstreetmap-styles/main/osm_simple_light_2.png)
+
 #### Currently not styled 
 - Points of Interest
 - Buildings
