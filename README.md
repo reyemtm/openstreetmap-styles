@@ -14,7 +14,7 @@ An OSM style for ArcGIS Pro based on the [Geofabrik](http://download.geofabrik.d
 - Buildings
 - Transit Stops
 - Land areas other than lakes, rivers and parks/recreation areas
-- Paths, trails, etc.
+- Paths, trails, pedestrian infrastructure
 
 *This is a work in progress.*
 
