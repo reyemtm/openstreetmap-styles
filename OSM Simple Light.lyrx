@@ -3,13 +3,13 @@
   "version" : "2.7.0",
   "build" : 26828,
   "layers" : [
-    "CIMPATH=map/new_group_layer.xml"
+    "CIMPATH=transit_map/osm_basemap.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "City fclass Labels",
-      "uRI" : "CIMPATH=map/city_labels.xml",
+      "uRI" : "CIMPATH=transit_map/city_fclass_labels.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -396,7 +396,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Bus Stops",
-      "uRI" : "CIMPATH=map/gis_osm_transport_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/bus_stops.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -752,7 +752,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Crossings",
-      "uRI" : "CIMPATH=map/gis_osm_traffic_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/crossings.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -1108,7 +1108,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Points of Interest",
-      "uRI" : "CIMPATH=map/gis_osm_pois_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/points_of_interest.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -1464,7 +1464,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Places of Worship",
-      "uRI" : "CIMPATH=map/gis_osm_pofw_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/places_of_worship.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -1820,7 +1820,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "City Labels",
-      "uRI" : "CIMPATH=map/gis_osm_places_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/city_labels.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -3177,7 +3177,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Trees",
-      "uRI" : "CIMPATH=map/gis_osm_natural_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/trees.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -3533,7 +3533,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Roads Primary Inner",
-      "uRI" : "CIMPATH=map/roads2.xml",
+      "uRI" : "CIMPATH=transit_map/roads_primary_inner.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -4487,7 +4487,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Roads",
-      "uRI" : "CIMPATH=map/gis_osm_roads_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/roads.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -4498,6 +4498,7 @@
         "type" : "CIMLayerElevationSurface",
         "mapElevationID" : "e70d119d516b4d839ebe163308da4f13"
       },
+      "expanded" : true,
       "layerType" : "Operational",
       "showLegends" : true,
       "visibility" : true,
@@ -4643,7 +4644,7 @@
               "abbreviation" : 5
             },
             "thinDuplicateLabels" : true,
-            "thinningDistance" : 1,
+            "thinningDistance" : 4,
             "thinningDistanceUnit" : "Inch",
             "truncationMarkerCharacter" : ".",
             "truncationMinimumLength" : 1,
@@ -4812,7 +4813,7 @@
             }
           },
           "useCodedValue" : true,
-          "whereClause" : "(ref LIKE '%US%' And fclass IN ('motorway', 'trunk')) Or (ref LIKE '%SR%' And fclass IN ('motorway', 'trunk'))",
+          "whereClause" : "(ref LIKE '%US%' And fclass IN ('motorway', 'trunk')) Or (ref LIKE '%SR%' And fclass IN ('motorway', 'trunk')) OR\r\n(ref LIKE 'I%' And fclass IN ('motorway', 'trunk'))",
           "visibility" : true,
           "iD" : -1
         },
@@ -4938,7 +4939,7 @@
             "truncationExcludedCharacters" : "0123456789",
             "polygonAnchorPointPerimeterInsetUnit" : "Point"
           },
-          "minimumScale" : 50000,
+          "minimumScale" : 60000,
           "name" : "Residential",
           "priority" : -1,
           "standardLabelPlacementProperties" : {
@@ -5028,9 +5029,9 @@
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        130,
-                        130,
-                        130,
+                        178,
+                        178,
+                        178,
                         100
                       ]
                     }
@@ -5053,7 +5054,7 @@
             }
           },
           "useCodedValue" : true,
-          "whereClause" : "fclass NOT IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'trunk', 'trunk_link', 'motorway_link', 'motorway', 'tertiary', 'tertiary_link') And ref NOT LIKE '%CR%' And ref NOT LIKE '%TWP%'",
+          "whereClause" : "fclass NOT IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'trunk', 'trunk_link', 'motorway_link', 'motorway', 'tertiary', 'tertiary_link', 'footway', 'cycleway', 'bridleway', 'pedestrian', 'path') And ref NOT LIKE '%CR%' And ref NOT LIKE '%TWP%'",
           "visibility" : true,
           "iD" : -1
         },
@@ -5171,7 +5172,7 @@
               "abbreviation" : 5
             },
             "thinDuplicateLabels" : true,
-            "thinningDistance" : 6,
+            "thinningDistance" : 4,
             "thinningDistanceUnit" : "Inch",
             "truncationMarkerCharacter" : ".",
             "truncationMinimumLength" : 1,
@@ -5179,7 +5180,7 @@
             "truncationExcludedCharacters" : "0123456789",
             "polygonAnchorPointPerimeterInsetUnit" : "Point"
           },
-          "minimumScale" : 50000,
+          "minimumScale" : 60000,
           "name" : "County Roads",
           "priority" : -1,
           "standardLabelPlacementProperties" : {
@@ -5648,7 +5649,7 @@
                         "joinStyle" : "Round",
                         "lineStyle3D" : "Strip",
                         "miterLimit" : 10,
-                        "width" : 1.3999999999999999,
+                        "width" : 1.2,
                         "color" : {
                           "type" : "CIMRGBColor",
                           "values" : [
@@ -6332,7 +6333,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Rail",
-      "uRI" : "CIMPATH=map/gis_osm_railways_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/rail.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -6696,7 +6697,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Rivers",
-      "uRI" : "CIMPATH=map/gis_osm_waterways_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/rivers.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -6986,7 +6987,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Lakes",
-      "uRI" : "CIMPATH=map/gis_osm_water_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/lakes.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -7271,7 +7272,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Airports",
-      "uRI" : "CIMPATH=map/gis_osm_transport_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/airports.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -7282,6 +7283,7 @@
         "type" : "CIMLayerElevationSurface",
         "mapElevationID" : "e70d119d516b4d839ebe163308da4f13"
       },
+      "expanded" : true,
       "layerType" : "Operational",
       "showLegends" : true,
       "visibility" : true,
@@ -7567,7 +7569,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Parking",
-      "uRI" : "CIMPATH=map/gis_osm_traffic_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/parking.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -7852,7 +7854,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Points of Interest Polygons",
-      "uRI" : "CIMPATH=map/gis_osm_pois_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/points_of_interest_polygons.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -8155,7 +8157,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Places of Worship Polygons",
-      "uRI" : "CIMPATH=map/gis_osm_pofw_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/places_of_worship_polygons.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -8458,7 +8460,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "City Boundaries Outline",
-      "uRI" : "CIMPATH=map/city_boundaries.xml",
+      "uRI" : "CIMPATH=transit_map/city_boundaries_outline.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant",
         "start" : 978307200000
@@ -8805,7 +8807,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "Land Use",
-      "uRI" : "CIMPATH=map/gis_osm_landuse_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/land_use.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -8816,6 +8818,7 @@
         "type" : "CIMLayerElevationSurface",
         "mapElevationID" : "e70d119d516b4d839ebe163308da4f13"
       },
+      "expanded" : true,
       "layerType" : "Operational",
       "showLegends" : true,
       "visibility" : true,
@@ -9150,17 +9153,15 @@
                         "enable" : true,
                         "anchorPointUnits" : "Relative",
                         "dominantSizeAxis3D" : "Y",
-                        "size" : 1,
+                        "size" : 3,
                         "billboardMode3D" : "FaceNearPlane",
                         "markerPlacement" : {
                           "type" : "CIMMarkerPlacementInsidePolygon",
                           "gridType" : "Fixed",
-                          "offsetX" : 3,
                           "randomness" : 100,
-                          "seed" : 12,
-                          "stepX" : 3,
-                          "stepY" : 3,
-                          "offsetY" : 3,
+                          "seed" : 13,
+                          "stepX" : 6,
+                          "stepY" : 6,
                           "clipping" : "ClipAtBoundary"
                         },
                         "frame" : {
@@ -9280,9 +9281,9 @@
                                             "color" : {
                                               "type" : "CIMRGBColor",
                                               "values" : [
-                                                0,
-                                                0,
-                                                0,
+                                                204,
+                                                204,
+                                                204,
                                                 100
                                               ]
                                             }
@@ -9333,10 +9334,23 @@
                         ],
                         "scaleSymbolsProportionally" : true,
                         "respectFrame" : true
+                      },
+                      {
+                        "type" : "CIMSolidFill",
+                        "enable" : true,
+                        "color" : {
+                          "type" : "CIMHSLColor",
+                          "values" : [
+                            0,
+                            0,
+                            90,
+                            100
+                          ]
+                        }
                       }
                     ]
                   },
-                  "minScale" : 24000
+                  "minScale" : 100000
                 },
                 "values" : [
                   {
@@ -9468,7 +9482,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "City Boundaries",
-      "uRI" : "CIMPATH=map/gis_osm_places_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/city_boundaries.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant",
         "start" : 978307200000
@@ -9480,6 +9494,7 @@
         "type" : "CIMLayerElevationSurface",
         "mapElevationID" : "e70d119d516b4d839ebe163308da4f13"
       },
+      "expanded" : true,
       "layerType" : "Operational",
       "maxScale" : 100000,
       "showLegends" : true,
@@ -11097,7 +11112,7 @@
     {
       "type" : "CIMFeatureLayer",
       "name" : "gis_osm_natural_a_free_1",
-      "uRI" : "CIMPATH=map/gis_osm_natural_a_free_1.xml",
+      "uRI" : "CIMPATH=transit_map/gis_osm_natural_a_free_1.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -11643,7 +11658,7 @@
     {
       "type" : "CIMGroupLayer",
       "name" : "OSM Basemap",
-      "uRI" : "CIMPATH=map/new_group_layer.xml",
+      "uRI" : "CIMPATH=transit_map/osm_basemap.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -11666,27 +11681,27 @@
       "refreshRateUnit" : "esriTimeUnitsSeconds",
       "blendingMode" : "Alpha",
       "layers" : [
-        "CIMPATH=map/city_labels.xml",
-        "CIMPATH=map/gis_osm_transport_free_1.xml",
-        "CIMPATH=map/gis_osm_traffic_free_1.xml",
-        "CIMPATH=map/gis_osm_pois_free_1.xml",
-        "CIMPATH=map/gis_osm_pofw_free_1.xml",
-        "CIMPATH=map/gis_osm_places_free_1.xml",
-        "CIMPATH=map/gis_osm_natural_free_1.xml",
-        "CIMPATH=map/roads2.xml",
-        "CIMPATH=map/gis_osm_roads_free_1.xml",
+        "CIMPATH=transit_map/city_fclass_labels.xml",
+        "CIMPATH=transit_map/bus_stops.xml",
+        "CIMPATH=transit_map/crossings.xml",
+        "CIMPATH=transit_map/points_of_interest.xml",
+        "CIMPATH=transit_map/places_of_worship.xml",
+        "CIMPATH=transit_map/city_labels.xml",
+        "CIMPATH=transit_map/trees.xml",
+        "CIMPATH=transit_map/roads_primary_inner.xml",
+        "CIMPATH=transit_map/roads.xml",
         "CIMPATH=map/roads.xml",
-        "CIMPATH=map/gis_osm_railways_free_1.xml",
-        "CIMPATH=map/gis_osm_waterways_free_1.xml",
-        "CIMPATH=map/gis_osm_water_a_free_1.xml",
-        "CIMPATH=map/gis_osm_transport_a_free_1.xml",
-        "CIMPATH=map/gis_osm_traffic_a_free_1.xml",
-        "CIMPATH=map/gis_osm_pois_a_free_1.xml",
-        "CIMPATH=map/gis_osm_pofw_a_free_1.xml",
-        "CIMPATH=map/city_boundaries.xml",
-        "CIMPATH=map/gis_osm_landuse_a_free_1.xml",
-        "CIMPATH=map/gis_osm_places_a_free_1.xml",
-        "CIMPATH=map/gis_osm_natural_a_free_1.xml"
+        "CIMPATH=transit_map/rail.xml",
+        "CIMPATH=transit_map/rivers.xml",
+        "CIMPATH=transit_map/lakes.xml",
+        "CIMPATH=transit_map/airports.xml",
+        "CIMPATH=transit_map/parking.xml",
+        "CIMPATH=transit_map/points_of_interest_polygons.xml",
+        "CIMPATH=transit_map/places_of_worship_polygons.xml",
+        "CIMPATH=transit_map/city_boundaries_outline.xml",
+        "CIMPATH=transit_map/land_use.xml",
+        "CIMPATH=transit_map/city_boundaries.xml",
+        "CIMPATH=transit_map/gis_osm_natural_a_free_1.xml"
       ]
     }
   ],
